@@ -92,39 +92,94 @@ function CemberinAlani(r, pi) {
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
-  enkucuk,
-  enbuyuk,
-  ucebolunenlerintoplami,
-  besyuzdenkucuksayilar,
-  siralisayilar,
-  tekraredensayilar;
+let ucebolunenlerintoplami;
+let enbuyuk = sayilar[0];
+let enkucuk = sayilar[0];
+  
+
+ let ucetambolunenler = [];
+ let besyuzdenkucuksayilar = [];
+ let  siralisayilar = [];
+ let tekraredensayilar = [];
+ 
 
 // 3a çözümü
+  for (let i = 0; i < sayilar.length; i++) {
+    
+    if (enkucuk > sayilar[i]) {
+      enkucuk = sayilar[i];
+    }
+    if (enbuyuk < sayilar[i]) { 
+      enbuyuk = sayilar[i];
+    }  
+  }
+     //console.log(enbuyuk);
+     //console.log(enbuyuk); 
 
-/* kodlar buraya */
 
 // 3b çözümü:
 
-/* kodlar buraya */
+  sayilar.forEach((sayi) => {
+    if (sayi %3 === 0) {
+      ucetambolunenler.push(sayi);
+    }
+  }
+  )
 
 // 3c çözümü:
 
-/* kodlar buraya */
+  ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, baslangic) => {
+      
+     return toplam += baslangic }, 0
+
+)
 
 // 3d çözümü
 
-/* kodlar buraya */
+ sayilar.filter((sayi) => {
+
+  if (sayi < 500) {
+    besyuzdenkucuksayilar.push(sayi)
+  }
+}
+)
+ 
 
 // 3e çözümü
 
-/* kodlar buraya */
+ let besyuzdenkucuksayilarkopya = [...besyuzdenkucuksayilar];
+
+ besyuzdenkucuksayilarkopya.sort((a, b) => a - b);
+
+ siralisayilar = [...besyuzdenkucuksayilarkopya];
+
+
+
 
 // 3f çözümü
 
-/* kodlar buraya */
 
-/*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
+  
+  const tekrarSayilari = {};
+
+  
+sayilar.forEach((sayi) => {
+  if (tekrarSayilari[sayi] === undefined) {
+      tekrarSayilari[sayi] = 0;
+  }
+  tekrarSayilari[sayi] += 1;
+});
+
+
+for (const sayi in tekrarSayilari) {
+  if (tekrarSayilari[sayi] > 1) {
+      tekraredensayilar.push(`${sayi} sayısı ${tekrarSayilari[sayi]} kere tekrar edilmiştir`);
+  }
+}
+ 
+
+
+
 
 function sa() {
   console.log("Kodlar çalışıyor");
